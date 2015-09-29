@@ -14,5 +14,15 @@ describe("Thermostat", function(){
             thermostat.increaseTemp();
             expect(thermostat.currentTemp).toEqual(21);
         });
+
+        it("calling the decreaseTemp method decreases the current temp by 1 degree", function (){
+            thermostat.decreaseTemp();
+            expect(thermostat.currentTemp).toEqual(19);
+        });
+
+        it("minimum temperature is 10 degrees", function(){
+            expect(thermostat.minimumTemp).toEqual(10);
+        });
+
     });
 });
