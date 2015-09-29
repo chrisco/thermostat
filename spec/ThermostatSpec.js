@@ -24,5 +24,15 @@ describe("Thermostat", function(){
             expect(thermostat.minimumTemp).toEqual(10);
         });
 
+        it("temperature cant go below 10 degrees", function(){
+            thermostat.currentTemp = 10;
+            thermostat.decreaseTemp();
+            expect(thermostat.currentTemp).toEqual(10);
+        });
+
+        it("power saving mode is set to true", function(){
+            expect(thermostat.mode).toEqual(true);
+        });
+
     });
 });
