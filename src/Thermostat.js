@@ -29,3 +29,8 @@ Thermostat.prototype.getMaxTemp = function() {
         return 32;
     }
 };
+
+Thermostat.prototype.reset= function(){
+    this.mode = true;
+    this.currentTemp = 20;
+};

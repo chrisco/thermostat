@@ -47,5 +47,15 @@ describe("Thermostat", function(){
             expect(thermostat.currentTemp).toEqual(32);
         });
 
+        it("re-set button re-sets temperature to 20 and the power saving mode to on", function(){
+            thermostat.currentTemp = 666;
+            thermostat.mode = false;
+            thermostat.reset();
+            expect(thermostat.currentTemp).toEqual(20);
+            expect(thermostat.mode).toEqual(true);
+        });
+
+
+
     });
 });
