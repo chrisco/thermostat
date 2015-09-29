@@ -7,4 +7,19 @@ function updateDisplay() {
 
 $(document).ready(function () {
     updateDisplay();
+    $('#increase').click(function(){
+        thermostat.increaseTemp(1);
+        updateDisplay();
+
+    });
+$(document).ready(function(){
+    updateDisplay();
+    $('#decrease').click(function(){
+        thermostat.decreaseTemp(1);
+        updateDisplay();
+    });
+
+
+});
+
 });
