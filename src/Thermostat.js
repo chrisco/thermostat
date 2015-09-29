@@ -30,7 +30,17 @@ Thermostat.prototype.getMaxTemp = function() {
     }
 };
 
-Thermostat.prototype.reset= function(){
+Thermostat.prototype.reset = function() {
     this.mode = true;
     this.currentTemp = 20;
+};
+
+Thermostat.prototype.getColor = function() {
+    if(this.currentTemp < 18) {
+        return "green";
+    } else if (this.currentTemp < 25) {
+        return "yellow";
+    } else {
+        return "red";
+    }
 };

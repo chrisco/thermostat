@@ -55,7 +55,20 @@ describe("Thermostat", function(){
             expect(thermostat.mode).toEqual(true);
         });
 
+        it("if temperature is below 18 its green", function() {
+            thermostat.currentTemp = 17;
+            expect(thermostat.getColor()).toEqual("green");
+        });
 
+        it("if temperature is between 18-24 its yellow", function() {
+            thermostat.currentTemp = 21;
+            expect(thermostat.getColor()).toEqual("yellow");
+        });
+
+        it("if temperature is above 25 its red", function() {
+            thermostat.currentTemp = 27;
+            expect(thermostat.getColor()).toEqual("red");
+        });
 
     });
 });
