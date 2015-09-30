@@ -55,6 +55,19 @@ describe("Thermostat", function () {
             expect(thermostat.powerSavingMode).toEqual(true);
         });
 
+        it("if temperature is above 25 and power saving mode button is pressed, temp is reduced to 25", function () {
+            thermostat.currentTemp = 30;
+            thermostat.powerSavingMode = false;
+            thermostat.turnOnPowerSavingMode();
+            expect(thermostat.currentTemp).toEqual(25);
+        });
+
+        it("if temperature is below 25 and power saving mode button is pressed, temp not changed", function () {
+            thermostat.currentTemp = 21;
+            thermostat.turnOnPowerSavingMode();
+            expect(thermostat.currentTemp).toEqual(21);
+        });
+
         it("if temperature is below 18 its green", function () {
             thermostat.currentTemp = 17;
             expect(thermostat.getColor()).toEqual("green");

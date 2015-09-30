@@ -44,3 +44,24 @@ Thermostat.prototype.getColor = function() {
         return "red";
     }
 };
+
+Thermostat.prototype.togglePowerSavingMode = function () {
+    if (this.powerSavingMode === true) {
+        this.turnOffPowerSavingMode();
+    } else {
+        this.turnOnPowerSavingMode();
+    }
+};
+
+Thermostat.prototype.turnOffPowerSavingMode = function () {
+    this.powerSavingMode = false;
+};
+
+Thermostat.prototype.turnOnPowerSavingMode = function () {
+    if (this.currentTemp > 25) {
+        this.currentTemp = 25;
+        this.powerSavingMode = true;
+    } else {
+        this.powerSavingMode = true;
+    }
+};
