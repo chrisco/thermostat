@@ -44,4 +44,9 @@ describe('ThermostatUI', function () {
         var selected = $('#current_city').find(":selected").val();
         expect(selected).toEqual("Boulder,us");
     });
+
+    it('it can connect to the Open Weather API and return a value', function () {
+        var test = getWeatherData('Gothenburg,se');
+    });
+
 });
