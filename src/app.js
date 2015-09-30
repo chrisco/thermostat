@@ -22,5 +22,11 @@ $(document).ready(function () {
         updateDisplay();
     });
 
+    $('#reset').click(function () {
+        $('#power_saving_mode').prop('checked', true);
+        thermostat.reset();
+        updateDisplay();
+    });
+
 
 });
