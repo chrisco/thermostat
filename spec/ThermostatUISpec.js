@@ -25,7 +25,7 @@ describe('ThermostatUI', function() {
     });
 
     it('power saving mode can be turned off', function(){
-        $("#power_saving_mode").on();
+        $("#power_saving_mode").on('change', function ();
         expect($("#power_saving_mode")).not.toBeChecked();
     });
 
