@@ -5,12 +5,17 @@
 </head>
 <body>
 <h1><span id="current_temp"></span>°C</h1>
-<span id=""message"></span>
+<span id="message"></span>
 <button id='increase'>↑</button>
 <button id='decrease'>↓</button>
 <form action="">
-<input type="checkbox" id='power_saving_mode' checked>Power Saving Mode</form>
+    <input type="checkbox" id='power_saving_mode' checked>Power Saving Mode
+</form>
 <button id='reset'>Reset</button>
+<select id="current_city">
+    <option value="Gothenburg,se">Göteborg</option>
+    <option value="Boulder,us">Boulder</option>
+</select>
 <script src='https://code.jquery.com/jquery-2.1.4.js'></script>
 <script src='src/Thermostat.js'></script>
 <script src="src/app.js"></script>

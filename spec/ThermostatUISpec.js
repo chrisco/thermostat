@@ -38,5 +38,10 @@ describe('ThermostatUI', function () {
         expect(thermostat.powerSavingMode).toEqual(true);
     });
 
-
+    it('it sets the correct city value when selected from the drop-down menu', function () {
+        //var current_city = $("#current_city").select(Value);
+        $('#current_city option[value="Boulder,us"]').attr("selected", "selected");
+        var selected = $('#current_city').find(":selected").val();
+        expect(selected).toEqual("Boulder,us");
+    });
 });
