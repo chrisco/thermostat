@@ -54,9 +54,9 @@ $(document).ready(function () {
         updateDisplay();
     });
 
-    // THIS WORKS:
+    // THIS WORKS TO CHANGE THE UI:
     $('#current_city').change(function () {
-        cityWeather.setTemp();
+        cityWeather.setTemp(); // This function doesn't work right, though (I have it hard coded).
         updateDisplay();
     });
 
