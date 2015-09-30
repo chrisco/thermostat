@@ -20,4 +20,13 @@ describe('ThermostatUI', function() {
         expect('#current_temp').toContainText('19');
     });
 
+    it('power saving mode is on by default', function(){
+        expect($("#power_saving_mode")).toBeChecked();
+    });
+
+    it('power saving mode can be turned off', function(){
+        $("#power_saving_mode").on();
+        expect($("#power_saving_mode")).not.toBeChecked();
+    });
+
 });
