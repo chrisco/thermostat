@@ -1,37 +1,23 @@
 var thermostat = new Thermostat();
-var cityWeather = new CityWeather();
+//var weatherData;
 
 function updateDisplay() {
     $("#current_temp").html(thermostat.currentTemp);
     $("#current_temp").css('color', thermostat.getColor());
-    $("#city_temp").html(cityWeather.cityTemp);
+    //$('#city_temp').html(api_response.main.temp);
 }
 
-// THIS RETURNS THE OBJECT WE WANT
-// in the console, can get the temp like this:
-// .responseJSON.main.temp;
-function printWeather() {
-    return getWeatherData();
-}
+//var api_response;
 
-// THIS DOESN'T WORK (neither do a few other variations of this I tried):
-function printWeather2() {
-    return getWeatherData().responseJSON.main.temp;
-}
+function getWeatherData(location) {
 
-function getWeatherData() {
-    var selected = $('#current_city').find(":selected").val();
-    var response;
-    // I added the return keyword below.  With it there, you can do this in the console:
-    //$ w = getWeatherData();
-    //$ w.responseJSON.main.temp;
-    //$ 12.09
-    return $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + selected + "&units=metric", function (json) {
-        response = json;
+    $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + location + "&units=metric", function (j) {
+        api_response = j;
     });
 }
 
 $(document).ready(function () {
+    var api_response;
     updateDisplay();
     $('#increase').click(function () {
         thermostat.increaseTemp(1);
@@ -56,8 +42,11 @@ $(document).ready(function () {
 
     // THIS WORKS TO CHANGE THE UI:
     $('#current_city').change(function () {
-        cityWeather.setTemp(); // This function doesn't work right, though (I have it hard coded).
-        updateDisplay();
+        //debugger;
+        //var api_response;
+        getWeatherData($("#current_city").val());
+        $('#city_temp').html(api_response.main.temp);
+        //updateDisplay();
     });
 
 
